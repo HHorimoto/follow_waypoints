@@ -6,6 +6,7 @@ import smach
 import smach_ros
 import csv
 import os
+import rospkg
 from state.follow_waypoints import FollowPath
 from state.make_waypoints import MakeWaypoints
 
@@ -19,9 +20,12 @@ def main():
     rospy.sleep(1.0)
     
     # parameters
-    duration = rospy.get_param("~duration")
-    distance_tolerance = rospy.get_param("~distance_tolerance")
-    path_to_waypoints = rospy.get_param("~path_to_waypoints")
+    duration = rospy.get_param("~duration", 0.0)
+    distance_tolerance = rospy.get_param("~distance_tolerance", 1.0)
+    rospack = rospkg.RosPack()
+    pkg_name = "follow_waypoints"
+    pkg_path = rospack.get_path(pkg_name)
+    path_to_waypoints = rospy.get_param("~path_to_waypoints", pkg_path+"/csv/waypoints.csv")
     
     # Create a SMACH state machine
     sm = smach.StateMachine(outcomes=['OK', 'NG'])
