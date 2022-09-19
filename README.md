@@ -25,18 +25,21 @@ $ catkin_make
 $ roscd follow_waypoints/csv/
 cat waypoints.csv
 num,x,y # header name, you must write it head of your csv.
-0,-4.8252396827,-1.2530685796,0 # num, x, y
-1,-18.9302072058,-3.27433665634,0
-2,-31.9823555043,-11.34231223581,0
+0,-4.8252396827,-1.2530685796 # num, x, y
+1,-18.9302072058,-3.27433665634
+2,-31.9823555043,-11.34231223581
 ```
 
 2. Launch this launch file.
 
 ```shell
-$ roslaunch follow_waypoints follow_waypoints.launch
+$ roslaunch follow_waypoints run.launch
 ```
 
 ### Parameters
+
++ ***use_py*** : if you use python script or cpp script. `true->python`, `false->cpp`
+    default : `true`
 
 + ***duration*** : wait time after robot reaches goal.
     default : `0.0` [s]
