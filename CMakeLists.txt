@@ -5,7 +5,18 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  actionlib
+  move_base_msgs
+  roslib
+  tf
+  geometry_msgs
 )
 
-catkin_package(
+catkin_package()
+
+include_directories(
+  ${catkin_INCLUDE_DIRS}
 )
+
+add_executable(run_cpp src/run_cpp.cpp)
+target_link_libraries(run_cpp ${catkin_LIBRARIES})
