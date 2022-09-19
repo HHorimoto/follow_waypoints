@@ -176,7 +176,7 @@ int main(int argc, char **argv)
     double duration = 0.0;
     pnh.getParam("duration", duration);
     double distance_tolerance = 1.0;
-    pnh.getParam("duration", distance_tolerance);
+    pnh.getParam("distance_tolerance", distance_tolerance);
     std::string pkg_name = "follow_waypoints";
     std::string pkg_path = ros::package::getPath(pkg_name);
     std::string path_to_waypoints = pkg_path + "/csv/waypoints.csv";
